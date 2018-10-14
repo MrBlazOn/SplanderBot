@@ -14,7 +14,7 @@ def launchbot():
     updater = Updater(token = config.token)
     dispatcher = updater.dispatcher
 
-    start_handler = CommandHandler('start', commands.start(splander, updater))
+    start_handler = CommandHandler('start', commands.start)
     dispatcher.add_handler(start_handler)
 
     updater.start_polling()
