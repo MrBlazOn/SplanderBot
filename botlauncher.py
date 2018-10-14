@@ -6,6 +6,7 @@ import os
 
 # Local files import
 import config
+import log
 
 # Server changes processing class import
 from bothandler import BotHandler as handler
@@ -33,8 +34,10 @@ def main():
             except KeyError as key_error_message:
                 print("Exception while obtaining data from server", key_error_message)
             
-            if last_chat_text.lower == 'ping':
+            if last_chat_text.lower() == 'ping':
                 splander.send_message(last_chat_id, 'pong')
+
+            log(last_update_id, last_chat_name, last_chat_text)
 
             new_offset = last_update_id + 1
 
