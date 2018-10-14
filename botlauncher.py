@@ -17,6 +17,9 @@ def launchbot():
     start_handler = CommandHandler('start', commands.start)
     dispatcher.add_handler(start_handler)
 
+    random_handler = CommandHandler('random', commands.random_unsplash_photo)
+    dispatcher.add_handler(random_handler)
+
     updater.start_polling()
 
     logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
