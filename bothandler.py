@@ -13,8 +13,12 @@ class BotHandler:
 		method = 'getUpdates'
 		params = {'timeout': timeout, 'offset': offset}
 		resp = requests.get(self.api_url + method, params)
-		result_json = resp.json()['result']
-		return result_json
+
+		try:
+			result_json = resp.json()['result']
+			return result_json
+		except KeyError as key_error_message:
+                print('Exception while obtaining data from server: ', key_error_message)
 
 	def send_message(self, chat_id, text):
 		params = {'chat_id': chat_id, 'text': text}
