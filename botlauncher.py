@@ -8,39 +8,27 @@ import os
 import config
 import log
 
-# Server changes processing class import
-from bothandler import BotHandler as handler
-
-# Creates the bot with the unique token
-splander = handler(config.token)
+# Telegram bot module import
+import logging
+from telegram.ext import Updater
+from telegram.ext import CommandHandler
 
 def launchbot():
-    
-    new_offset = None
-    
-    while True:
+    updater = Updater(token = config.token)
+    dispatcher = updater.dispatcher
 
-        # Obtaining new server information
-        splander.get_updates(new_offset)
-        last_update = splander.get_last_update()
-        
-        if last_update != None:
-            
-            last_update_id = last_update['update_id']
-            last_chat_text = last_update['message']['text'].lower()
-            last_chat_id = last_update['message']['chat']['id']
-            last_chat_name = last_update['message']['chat']['first_name']
-            
-            
-            if last_chat_text.lower() == 'ping':
-                splander.send_message(last_chat_id, 'pong')
+    start_handler = CommandHandler('start', start)
+    dispatcher.add_handler(start_handler)
 
-            log.heroku_log(last_update_id, last_chat_name, last_chat_text)
+    updater.start_polling()
 
-        new_offset = last_update_id + 1
+    logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
 
 if __name__ == '__main__':
     try:
         launchbot()
     except KeyboardInterrupt:
         exit()
+
+def start(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
