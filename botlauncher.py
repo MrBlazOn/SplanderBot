@@ -15,6 +15,8 @@ from bothandler import BotHandler as handler
 splander = handler(config.token)
 
 def launchbot():
+
+    print("LAUCHED SUCCESSFULLY")
     
     new_offset = None
     
