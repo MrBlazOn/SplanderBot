@@ -1,12 +1,5 @@
-# System modules import
-import requests
-import datetime
-import time
-import os
-
 # Local files import
 import config
-import log
 
 # Telegram bot module import
 import logging
