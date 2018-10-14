@@ -14,4 +14,6 @@ def start(bot, update):
     bot.send_message(chat_id = update.message.chat_id, text = "I'm a bot, please talk to me!")
 
 def random_unsplash_photo(bot, update):
-	bot.send_photo(chat_id = update.message.chat_id, photo = unsplash_api.photo.random())
+	random_photo = unsplash_api.photo.random()
+	print(random_photo)
+	bot.send_photo(chat_id = update.message.chat_id, photo = random_photo)
