@@ -14,15 +14,15 @@ from bothandler import BotHandler as handler
 # Creates the bot with the unique token
 splander = handler(config.token)
 
-def main():
+def launchbot():
     
     new_offset = None
     
     while True:
 
         # Obtaining new server information
-        skaffer.get_updates(new_offset)
-        last_update = skaffer.get_last_update()
+        splander.get_updates(new_offset)
+        last_update = splander.get_last_update()
         
         if last_update != {}:
             
@@ -43,6 +43,6 @@ def main():
 
 if __name__ == '__main__':
     try:
-        botlauncher()
+        launchbot()
     except KeyboardInterrupt:
         exit()
