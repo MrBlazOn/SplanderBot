@@ -15,8 +15,6 @@ from bothandler import BotHandler as handler
 splander = handler(config.token)
 
 def launchbot():
-
-    print("LAUCHED SUCCESSFULLY")
     
     new_offset = None
     
@@ -39,7 +37,7 @@ def launchbot():
             if last_chat_text.lower() == 'ping':
                 splander.send_message(last_chat_id, 'pong')
 
-            log(last_update_id, last_chat_name, last_chat_text)
+            log.heroku_log(last_update_id, last_chat_name, last_chat_text)
 
             new_offset = last_update_id + 1
 
