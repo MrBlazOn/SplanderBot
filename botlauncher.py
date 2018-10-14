@@ -33,7 +33,7 @@ def main():
             except KeyError as key_error_message:
                 print("Exception while obtaining data from server", key_error_message)
             
-            if last_chat_text.lower = 'ping':
+            if last_chat_text.lower == 'ping':
                 splander.send_message(last_chat_id, 'pong')
 
             new_offset = last_update_id + 1
