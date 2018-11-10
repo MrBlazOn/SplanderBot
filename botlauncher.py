@@ -20,6 +20,10 @@ def launchbot():
     random_handler = CommandHandler('random', commands.random_unsplash_photo)
     dispatcher.add_handler(random_handler)
 
+    by_request_handler = CommandHandler(update.massege.text.startwith('search'), commands.photo_by_request)
+    dispatcher.add_handler(by_request_handler)
+
+
     updater.start_polling()
 
     logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
