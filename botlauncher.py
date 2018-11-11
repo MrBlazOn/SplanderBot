@@ -20,7 +20,7 @@ def launchbot():
     random_handler = CommandHandler('random', commands.random_unsplash_photo)
     dispatcher.add_handler(random_handler)
 
-    by_request_handler = CommandHandler('search', commands.photo_by_request)
+    by_request_handler = CommandHandler('search', commands.photo_by_request, pass_args = True)
     dispatcher.add_handler(by_request_handler)
 
 

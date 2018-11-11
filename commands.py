@@ -15,8 +15,6 @@ def random_unsplash_photo(bot, update):
 	photo_id = random_photo[0].id
 	bot.send_photo(chat_id = update.message.chat_id, photo = 'unsplash.com/photos/{}'.format(photo_id))
 
-def photo_by_request(bot,update):
-	new_list=update.message.text.split()
-	needed_photo=unsplash_api.photo.random()
-	photo_id=random_photo[0].id
-	bot.send_photo(chat_id = update.message.chat_id, photo = 'unsplash.com/photos/{}'.format(new_list[1])+{}.format(photo_id))
+def photo_by_request(bot, update, args):
+	required_phoro_json = unsplash_api.search.photos(args[0])
+	print(required_phoro_json)
