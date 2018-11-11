@@ -23,7 +23,6 @@ def launchbot():
     by_request_handler = CommandHandler('search', commands.photo_by_request, pass_args = True)
     dispatcher.add_handler(by_request_handler)
 
-
     updater.start_polling()
 
     logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
