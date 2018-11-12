@@ -8,6 +8,7 @@ import telegram
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler
+from telegram.ext import Filters
 
 splander = telegram.Bot(token = config.token)
 
