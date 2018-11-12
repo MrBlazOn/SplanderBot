@@ -24,10 +24,10 @@ def launchbot():
     dispatcher.add_handler(by_request_handler)
 
     helper_handler = CommandHandler('help', commands.help)
-    dispatcher.add_handler(helper_hendler)
+    dispatcher.add_handler(helper_handler)
 
     many_photos_handler = CommandHandler('few', commands.many_photos, pass_args = True)
-    dispatcher.add_handler(many_photos_hendler)
+    dispatcher.add_handler(many_photos_handler)
 
     updater.start_polling()
 
