@@ -21,4 +21,4 @@ def photo_by_request(bot, update, args):
 	bot.send_photo(chat_id = update.message.chat_id, photo = 'unsplash.com/photos/{}'.format(photo_id))
 
 def help(bot, update):
-	bot.send_message(chat_id = update.message.chat_id, text = "Список комманд на данный момент:/n/n\random - Получить случайную фотку/n\search - Получить фото по запросу(Пример: \search stars))")
+	bot.send_message(chat_id = update.message.chat_id, text = "Команды на данный момент:\n\n/random - Получить случайную фотку\n/search - Получить фото по запросу(Пример: \search stars))")
