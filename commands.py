@@ -19,3 +19,6 @@ def photo_by_request(bot, update, args):
 	required_photo = unsplash_api.search.photos(args[0])['results'][0]
 	photo_id = required_photo.id
 	bot.send_photo(chat_id = update.message.chat_id, photo = 'unsplash.com/photos/{}'.format(photo_id))
+
+def help(bot, update):
+	bot.send_message(chat_id=update.meesage.chat_id,text="Список комманд на данный момент:/n/n\random - Получить случайную фотку/n\search - Получить фото по запросу(Пример: \search stars))")

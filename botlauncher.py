@@ -23,6 +23,9 @@ def launchbot():
     by_request_handler = CommandHandler('search', commands.photo_by_request, pass_args = True)
     dispatcher.add_handler(by_request_handler)
 
+    helper_hendler = CommandHandler(' help', commands.help)
+    dispatcher.add_handler(helper_hendler)
+
     updater.start_polling()
 
     logging.basicConfig(format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
