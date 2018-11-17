@@ -24,12 +24,13 @@ def help(bot, update):
 	bot.send_message(chat_id = update.message.chat_id, text = "Команды на данный момент:\n\n/random - Получить случайную фотку\n/search - Получить фото по запросу(Пример: \search stars))")
 
 def many_photos(bot, update, args):
+	ListOfPhotos = []
 	if args[0] > 5:
 		args[0] = 5
 	for i in range(int(args[0])):
 		random_photo = unsplash_api.photo.random()
-		photo_id = random_photo[0].id
-		bot.send_photo(chat_id = update.message.chat_id, photo = 'unsplash.com/photos/{}'.format(photo_id))
+		ListOfPhotos.append(random_photo[0].id)
+		bot.sendMediaGroup(chat_id = update.message.chat_id, media = 'unsplash.com/photos/{}'.format(ListOfPhotos[0]))
 
 def unknown(bot, update):
     bot.send_message(chat_id = update.message.chat_id, text = "Sorry, I didn't understand that command.")
