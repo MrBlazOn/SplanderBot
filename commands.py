@@ -25,8 +25,8 @@ def help(bot, update):
 
 def many_photos(bot, update, args):
 	ListOfPhotos = []
-	if args[0] > 5:
-		args[0] = 5
+	if int(args[0]) > 5:
+		int(args[0]) = 5
 	for i in range(int(args[0])):
 		random_photo = unsplash_api.photo.random()
 		ListOfPhotos.append(random_photo[0].id)
