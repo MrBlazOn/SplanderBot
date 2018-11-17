@@ -31,7 +31,11 @@ def launchbot():
     many_photos_handler = CommandHandler('few', commands.many_photos, pass_args = True)
     dispatcher.add_handler(many_photos_handler)
 
+<<<<<<<
     unknown_handler = MessageHandler(Filters.text, commands.unknown)
+=======
+    unknown_handler = MessageHandler(Filter.text, commands.unknown)
+>>>>>>>
     dispatcher.add_handler(unknown_handler)
 
     updater.start_polling()
