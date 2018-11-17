@@ -12,7 +12,7 @@ from telegram.ext import MessageHandler
 from telegram.ext import Filters
 
 splander = telegram.Bot(token = config.token)
-MesFilter = FilterOfCommands()
+MesFilter = Filter.FilterOfCommands()
 
 def launchbot():
     updater = Updater(token = config.token)
