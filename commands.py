@@ -29,8 +29,8 @@ def many_photos(bot, update, args):
 		args[0] = 5
 	for i in range(int(args[0])):
 		random_photo = unsplash_api.photo.random()
-		ListOfPhotos.append(random_photo[0].id)
-		bot.sendMediaGroup(chat_id = update.message.chat_id, media = 'unsplash.com/photos/{}'.format(ListOfPhotos[0]))
+		ListOfPhotos.append('unsplash.com/photos/{}'.format(random_photo[0].id))
+	bot.sendMediaGroup(chat_id = update.message.chat_id, media = ListOfPhotos) 
 
 def unknown(bot, update):
     bot.send_message(chat_id = update.message.chat_id, text = "Sorry, I didn't understand that command.")
