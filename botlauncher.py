@@ -1,6 +1,7 @@
 # Local files import
 import config
 import commands
+import Filter
 
 # Telegram bot module import
 import logging
@@ -11,6 +12,7 @@ from telegram.ext import MessageHandler
 from telegram.ext import Filters
 
 splander = telegram.Bot(token = config.token)
+MesFilter = FilterOfCommands()
 
 def launchbot():
     updater = Updater(token = config.token)
@@ -31,7 +33,7 @@ def launchbot():
     many_photos_handler = CommandHandler('few', commands.many_photos, pass_args = True)
     dispatcher.add_handler(many_photos_handler)
 
-    unknown_handler = MessageHandler(Filters.command, commands.unknown)
+    unknown_handler = MessageHandler(MesFilter.filter, commands.unknown)
     dispatcher.add_handler(unknown_handler)
 
     updater.start_polling()

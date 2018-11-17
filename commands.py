@@ -24,6 +24,8 @@ def help(bot, update):
 	bot.send_message(chat_id = update.message.chat_id, text = "Команды на данный момент:\n\n/random - Получить случайную фотку\n/search - Получить фото по запросу(Пример: \search stars))")
 
 def many_photos(bot, update, args):
+	if args[0] > 5:
+		args[0] = 5
 	for i in range(int(args[0])):
 		random_photo = unsplash_api.photo.random()
 		photo_id = random_photo[0].id
